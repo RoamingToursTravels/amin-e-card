@@ -168,6 +168,25 @@ body.dark-mode .btn-dark-toggle:hover {
     margin-bottom: 0;
 }
 
+.ecard-employee-id {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-mode .ecard-employee-id {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* ===== CONTACT BOX STYLES ===== */
 .ecard-contact-box {
     background: var(--bg-secondary);
