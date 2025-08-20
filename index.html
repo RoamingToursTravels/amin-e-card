@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digital Business Card - MD Samrat Hossain, Sr. Executive-Visa">
+    <meta name="description" content="Digital Business Card - S M Moniruzzaman">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Card - MD Samrat Hossain</title>
+    <title>E-Card - S M Moniruzzaman</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="Photos/Rlogo.png">
-    <link rel="apple-touch-icon" href="Photos/Rlogo.png">
-    <link rel="shortcut icon" href="Photos/Rlogo.png">
+    <link rel="icon" type="image/png" href="Photos/Black-Rock Logo.png">
+    <link rel="apple-touch-icon" href="Photos/Black-Rock Logo.png">
+    <link rel="shortcut icon" href="Photos/Black-Rock Logo.png">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="Photos/RTTLOGO.png" as="image">
-    <link rel="preload" href="Photos/employee.jpg" as="image">
+    <link rel="preload" href="Photos/Black-Rock Logo.png" as="image">
+    <link rel="preload" href="Photos/Derbana Logo.png" as="image">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style">
     
     <!-- External CSS -->
@@ -26,6 +26,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./ecard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <!-- Dark Mode Toggle Button -->
@@ -38,37 +39,53 @@
     <div class="ecard-bg-pattern d-flex align-items-center justify-content-center min-vh-100">
         <div class="ecard-main-card p-4">
             <div class="ecard-top mb-3 animate-element" data-delay="0">
-                <img src="Photos/RTTLOGO.png" alt="Company Logo" class="ecard-logo mb-3 d-block mx-auto animate-element" data-delay="100" width="200" height="auto" loading="eager">
-                <div class="ecard-profile-section d-flex align-items-center animate-element" data-delay="200">
-                    <div class="ecard-photo-box me-3">
-                        <img src="Photos/employee.jpg" alt="MD Samrat Hossain" class="ecard-photo-img animate-element" data-delay="300" width="80" height="80" loading="eager">
+                <div class="ecard-profile-section text-center animate-element" data-delay="200">
+                    <div class="ecard-logo-container mb-3">
+                        <a href="https://blackrock-bd.com/" target="_blank"><img src="Photos/Black-Rock Logo.png" alt="Black-Rock Logo" class="ecard-logo animate-element" data-delay="250"></a>
+                        <a href="https://derbana.com/" target="_blank"><img src="Photos/Derbana Logo.png" alt="Derbana Logo" class="ecard-logo animate-element" data-delay="300"></a>
                     </div>
-                    <div class="ecard-name-title flex-grow-1">
-                        <h2 class="ecard-name animate-element" data-delay="400">MD Samrat Hossain</h2>
-                        <div class="ecard-role animate-element" data-delay="500">Sr. Executive-Visa</div>
-                        <div class="ecard-department animate-element" data-delay="600">Visa Department</div>
+                    <div class="ecard-photo-box mb-3">
+                        <img src="Photos/photo.jpg" alt="S M Moniruzzaman" class="ecard-photo-img animate-element" data-delay="350" width="150" height="150" loading="eager">
                     </div>
+                    <h2 class="ecard-name animate-element" data-delay="400">S M Moniruzzaman</h2>
                 </div>
             </div>
 
             <div class="ecard-contact-box p-3 my-3 animate-element" data-delay="700">
-                <div class="ecard-employee-id animate-element" data-delay="750">ID: RT25050102</div>
-                <div class="ecard-contact mb-2 animate-element" data-delay="800"><i class="fas fa-phone-alt me-2"></i>Office: 01329739731</div>
-                <div class="ecard-contact mb-2 animate-element" data-delay="850"><i class="fas fa-mobile-alt me-2"></i>Personal: 01738738637</div>
-                <div class="ecard-contact animate-element" data-delay="900"><i class="fas fa-envelope me-2"></i>roamingbdvisa01@gmail.com</div>
+                <div class="ecard-contact mb-2 animate-element" data-delay="800"><i class="fas fa-mobile-alt me-2"></i><a href="tel:+8801329739728">Mobile: 01329-739728</a></div>
+                <div class="ecard-contact mb-2 animate-element" data-delay="850"><i class="fas fa-phone-alt me-2"></i><a href="tel:+15052345706">USA Number: +1 (505) 234-5706</a></div>
+                <div class="ecard-contact mb-2 animate-element" data-delay="900"><i class="fas fa-envelope me-2"></i><a href="mailto:ceo@blackrock-bd.com">ceo@blackrock-bd.com</a></div>
+                <div class="ecard-contact animate-element" data-delay="950"><i class="fas fa-envelope me-2"></i><a href="mailto:ceo@derbana.com">ceo@derbana.com</a></div>
             </div>
 
-            <a href="#" class="ecard-save-btn btn-block my-3 text-center text-decoration-none animate-element" data-delay="1000" onclick="saveContact()"><i class="fas fa-download me-2"></i>Save this contact</a>
+            <div class="ecard-address-box">
+                <div class="address-container">
+                    <div class="address-item">
+                        <span class="address-title">BD Office Location <i class="fas fa-building"></i></span>
+                        <div class="address-details">Niloy, House-25 (2nd Floor), Road-02, Sector-03, opposite of Shopno, Rajlokkhi, Uttara, Dhaka, Bangladesh</div>
+                    </div>
 
-            <div class="ecard-social-row d-flex justify-content-center align-items-center my-3 animate-element" data-delay="1100">
-                <a href="https://www.linkedin.com/in/asad-samrat-2b042a358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="ecard-social-btn animate-element" data-delay="1200"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/" target="_blank" class="ecard-social-btn animate-element" data-delay="1250"><i class="fab fa-facebook"></i></a>
-                <a href="#" onclick="openWhatsApp()" class="ecard-social-btn animate-element" data-delay="1300"><i class="fab fa-whatsapp"></i></a>
+                    <div class="address-item">
+                        <span class="address-title">Factory <i class="fas fa-industry"></i></span>
+                        <div class="address-details">House: 2084, Suite: 2a, Level: 02, Ward: 16, Malancha,shakta, Holding: 2084, Road: 06, Zianagar, Madrasa Road, Malancha, Dhaka-1312, Bangladesh</div>
+                    </div>
+
+                    <div class="address-item">
+                        <span class="address-title">Darbana USA Office <i class="fas fa-globe-americas"></i></span>
+                        <div class="address-details">8206 Louisiana Blvd Ne, Ste A #6795, Albuquerque, New Mexico 87113 USA</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="ecard-footer-box text-center mt-auto animate-element" data-delay="1400">
-                <div class="ecard-address mb-1 animate-element" data-delay="1450"><a href="https://maps.app.goo.gl/pSjC1TyKVZvMcXwP9" target="_blank" class="ecard-address-link">House-25 (2nd Floor), Road-02, Sector-03, opposite of Shopno, Rajlokkhi, Uttara, Dhaka, Bangladesh</a></div>
-                <div class="ecard-website animate-element" data-delay="1500"><a href="https://www.roamingbd.com/" target="_blank">www.roamingbd.com</a></div>
+            <div class="ecard-website-box p-3 my-3 animate-element" data-delay="1350">
+                <div class="ecard-website mb-2 animate-element" data-delay="1400"><i class="fas fa-globe me-2"></i><a href="https://blackrock-bd.com/" target="_blank">blackrock-bd.com</a></div>
+                <div class="ecard-website animate-element" data-delay="1450"><i class="fas fa-globe me-2"></i><a href="https://derbana.com/" target="_blank">derbana.com</a></div>
+            </div>
+
+            <a href="#" class="ecard-save-btn btn-block my-3 text-center text-decoration-none animate-element" data-delay="1000" onclick="saveContact()"><i class="fas fa-download me-2"></i>Save e.card</a>
+
+            <div class="ecard-footer-box text-center mt-auto animate-element" data-delay="1500">
+                <!-- Optional: Add a small footer text here if needed -->
             </div>
         </div>
     </div>
