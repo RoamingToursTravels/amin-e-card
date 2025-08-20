@@ -15,6 +15,67 @@ const ANIMATION = {
 
 // ===== CONTACT MANAGEMENT =====
 
+/**
+ * Generates and downloads a vCard (.vcf) file for the contact.
+ */
+function saveContact() {
+    const name = "S M Moniruzzaman";
+    const mobile = "+8801329739728";
+    const usaNumber = "+1 (505) 234-5706";
+    const email1 = "ceo@blackrock-bd.com";
+    const email2 = "ceo@derbana.com";
+    const blackrockWebsite = "https://blackrock-bd.com/";
+    const derbanaWebsite = "https://derbana.com/";
+    const bdOffice = "Niloy, House-25 (2nd Floor), Road-02, Sector-03, opposite of Shopno, Rajlokkhi, Uttara, Dhaka, Bangladesh";
+    const factoryAddress = "House: 2084, Suite: 2a, Level: 02, Ward: 16, Malancha,shakta, Holding: 2084, Road: 06, Zianagar, Madrasa Road, Malancha, Dhaka-1312, Bangladesh.";
+    const usaOffice = "8206 Louisiana Blvd Ne, Ste A #6795, Albuquerque, New Mexico 87113 USA.";
+
+    const vCard = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        `FN:${name}`,
+        `N:${name};;;;`,
+        `TEL;TYPE=CELL:${mobile}`,
+        `TEL;TYPE=WORK:${usaNumber}`,
+        `EMAIL;TYPE=WORK:${email1}`,
+        `EMAIL;TYPE=WORK:${email2}`,
+        `URL;TYPE=WORK:${blackrockWebsite}`,
+        `URL;TYPE=WORK:${derbanaWebsite}`,
+        `ADR;TYPE=WORK:;;${bdOffice};;;;Bangladesh`,
+        `ADR;TYPE=WORK:;;${factoryAddress};;;;Bangladesh`,
+        `ADR;TYPE=WORK:;;${usaOffice};;;;USA`,
+        "END:VCARD"
+    ].join('\n');
+
+    const blob = new Blob([vCard], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${name.replace(/ /g, '_')}.vcf`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showNotification('Contact saved successfully!', 'success');
+}
+
+/**
+ * Initializes event listeners for address toggling.
+ */
+function initAddressToggle() {
+    document.querySelectorAll('.ecard-address-toggle').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const details = this.nextElementSibling;
+            if (details && details.classList.contains('ecard-address-details')) {
+                details.style.display = details.style.display === 'none' ? 'block' : 'none';
+            }
+        });
+    });
+}
+
 
 // ===== DARK MODE FUNCTIONALITY =====
 /**
@@ -172,22 +233,7 @@ function initAnimations() {
     });
 }
 
-/**
- * Adds interactive hover effects to social buttons
- */
-function initSocialButtonEffects() {
-    const socialBtns = document.querySelectorAll('.ecard-social-btn');
-    
-    socialBtns.forEach(btn => {
-        btn.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px) scale(1.1)';
-        });
-        
-        btn.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-}
+
 
 // ===== DYNAMIC CONTENT POPULATION =====
 // No dynamic population needed - all data is hardcoded in HTML
@@ -202,7 +248,12 @@ function initECard() {
         // Initialize core functionality
         initDarkMode();
         initAnimations();
-        initSocialButtonEffects();
+        initAddressToggle();
+
+        const saveContactBtn = document.getElementById('saveContactBtn');
+        if (saveContactBtn) {
+            saveContactBtn.addEventListener('click', saveContact);
+        }
         
         console.log('E-Card initialized successfully');
     } catch (error) {
@@ -229,8 +280,7 @@ document.addEventListener('visibilitychange', function() {
 // Export functions for global access (if needed)
 if (typeof window !== 'undefined') {
     window.ECard = {
-        saveContact,
-        openWhatsApp,
-        showNotification
+        showNotification,
+        saveContact
     };
 }

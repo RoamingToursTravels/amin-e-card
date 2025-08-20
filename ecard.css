@@ -10,16 +10,16 @@
 /* ===== CSS VARIABLES ===== */
 body {
     font-family: 'Poppins', sans-serif;
-    --primary-color: #2F4F4F; /* Dark Slate Gray - Mid-tone */
-    --secondary-color: #4682B4; /* Steel Blue - Mid-tone accent */
-    --accent-color: #FFD700; /* Gold - Professional accent */
-    --bg-primary: rgba(47, 79, 79, 0.95); /* Dark Slate Gray with transparency */
-    --bg-secondary: rgba(70, 130, 180, 0.98); /* Steel Blue with transparency */
-    --text-primary: #F5F5DC; /* Beige - Readable text */
-    --text-secondary: #D3D3D3; /* Light Gray - Muted text */
-    --text-tertiary: #A9A9A9; /* Dark Gray - Even more muted */
-    --border-color: rgba(70, 130, 180, 0.5); /* Border color from secondary bg */
-    --shadow-color: rgba(0, 0, 0, 0.4); /* Darker shadow */
+    --primary-color: #007bff; /* Blue from image */
+    --secondary-color: #e9ecef; /* Light gray for contact items */
+    --accent-color: #007bff; /* Blue */
+    --bg-primary: #ffffff; /* White background for card */
+    --bg-secondary: #f8f9fa; /* Slightly off-white for contact box */
+    --text-primary: #343a40; /* Dark text */
+    --text-secondary: #6c757d; /* Muted text */
+    --text-tertiary: #999999; /* Even more muted gray */
+    --border-color: #ced4da; /* Light border */
+    --shadow-color: rgba(0, 0, 0, 0.05);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -30,16 +30,16 @@ body.dark-mode {
     --accent-color: #3498db; /* A vibrant blue for accents */
     --bg-primary: rgba(44, 62, 80, 0.9); /* Dark navy with transparency */
     --bg-secondary: rgba(52, 73, 94, 0.95); /* Lighter navy with transparency */
-    --text-primary: #ecf0f1; /* Light gray for main text */
-    --text-secondary: #bdc3c7; /* Muted gray for secondary text */
-    --text-tertiary: #95a5a6; /* Even more muted gray */
+    --text-primary: #f8f9fa; /* Lighter text for main text */
+    --text-secondary: #e9ecef; /* Lighter muted gray for secondary text */
+    --text-tertiary: #ced4da; /* Lighter muted gray for tertiary text */
     --border-color: rgba(52, 73, 94, 0.5); /* Border color from secondary bg */
     --shadow-color: rgba(23, 32, 42, 0.5); /* Darker shadow */
 }
 
 /* ===== BACKGROUND PATTERN ===== */
 .ecard-bg-pattern {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Blue gradient from image */
     min-height: 100vh;
     padding: 20px;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -107,50 +107,79 @@ body.dark-mode .btn-dark-toggle:hover {
 /* ===== MAIN CARD STYLES ===== */
 .ecard-main-card {
     background: var(--bg-primary);
-    border-radius: 12px; /* Slightly less rounded for sleekness */
-    backdrop-filter: blur(12px); /* Slightly more blur for depth */
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Deeper shadow for glossy effect */
+    box-shadow: 0 15px 40px var(--shadow-color);
     color: var(--text-primary);
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
     transform: translateZ(0);
     position: relative;
-    max-width: 320px; /* Even more compact width */
+    max-width: 350px; /* Slightly reduced max-width */
     width: 100%;
-    padding: 25px; /* Slightly more padding for balance */
+    padding: 20px; /* Reduced padding */
 }
 
 /* ===== LOGO STYLES ===== */
 .ecard-logo-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
+    align-items: center;
+    gap: 15px; /* Reduced space between logos */
+    margin-bottom: 15px; /* Reduced margin */
 }
 
 .ecard-logo {
-    width: 80px; /* Adjust size as needed */
+    width: 100px; /* Adjust size as needed for individual logos */
     height: auto;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ecard-photo-box {
+    width: 120px; /* Reduced size */
+    height: 120px; /* Reduced size */
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px auto; /* Reduced margin */
+    border: 4px solid var(--primary-color); /* Reduced border */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* Reduced shadow */
+    background-color: #007bff; /* Blue background for the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ecard-photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ecard-photo-box::before {
+    content: none; /* Remove the Font Awesome user icon */
 }
 /* ===== PROFILE SECTION STYLES ===== */
 .ecard-profile-section {
     text-align: center;
-    margin-bottom: 15px; /* More compact spacing */
+    margin-bottom: 20px;
 }
 
 .ecard-photo-box {
-    width: 120px; /* Smaller photo */
-    height: 120px;
-    border-radius: 50%; /* Circular photo */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     overflow: hidden;
-    margin: 0 auto 15px auto; /* Center and space */
-    border: 3px solid var(--accent-color); /* Accent color border */
-    box-shadow: 0 0 15px rgba(52, 152, 219, 0.5); /* Accent color shadow */
+    margin: 0 auto 20px auto;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
+    background-color: #007bff; /* Blue background for the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+
 
 .ecard-photo-img {
     width: 100%;
@@ -159,46 +188,97 @@ body.dark-mode .btn-dark-toggle:hover {
 }
 
 .ecard-name {
-    font-size: 1.8rem; /* Slightly smaller font */
+    font-size: 1.8rem; /* Reduced font size */
     font-weight: 700;
     color: var(--text-primary);
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-    margin-bottom: 0;
+    margin-bottom: 3px; /* Reduced margin */
+.ecard-title {
+    font-size: 1rem; /* Reduced font size */
+    font-weight: 400;
+    color: var(--text-secondary); /* Changed to text-secondary */
+}   margin-bottom: 15px;
 }
+
+/* Removed ecard-description as it's no longer needed */
 
 /* ===== CONTACT BOX STYLES ===== */
-.ecard-contact-box,
-.ecard-address-box,
-.ecard-website-box {
-    background: var(--bg-secondary);
-    border-radius: 10px; /* More compact */
-    font-weight: 300;
-    color: var(--text-primary);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-    padding: 15px; /* Consistent padding */
-    margin-bottom: 15px; /* Consistent spacing */
-}
-
-.ecard-contact {
-    font-size: 0.95rem; /* Slightly smaller font */
-    font-weight: 400;
-    color: var(--text-secondary);
-    line-height: 1.4; /* More compact line height */
+.ecard-contact-box {
     display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.ecard-contact a {
-    color: var(--text-secondary);
+.ecard-contact-item {
+    background: #f8f9fa; /* Light background for items */
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid #dee2e6; /* Light border */
+}
+
+body.dark-mode .ecard-contact-item {
+    background: var(--secondary-color);
+    color: var(--text-primary);
+}
+
+.ecard-contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ecard-contact-item a {
+    display: flex;
+    align-items: center;
+    color: var(--text-primary); /* Ensure text color is readable */
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-.ecard-contact a:hover {
-    color: var(--accent-color);
+.ecard-contact-item a i {
+    color: var(--primary-color); /* Icon color */
+    font-size: 1.2rem;
+    width: 30px; /* Fixed width for icons */
+    text-align: center;
+}
+
+/* ===== ADDRESS SECTION STYLES (Hover to View) ===== */
+.ecard-address-toggle {
+    cursor: pointer;
+}
+
+.ecard-address-details {
+    margin-top: 10px;
+    padding: 10px;
+    background: var(--bg-secondary);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    border: 1px solid var(--border-color);
+}
+
+/* ===== SAVE CONTACT BUTTON STYLES ===== */
+.ecard-save-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.ecard-save-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
 }
 
 /* ===== ADDRESS SECTION STYLES (Hover to View) ===== */
@@ -380,14 +460,16 @@ body.dark-mode .btn-dark-toggle:hover {
 }
 
 .ecard-save-btn {
-    background: var(--accent-color);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
     font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block; /* Ensure it respects width/padding */
-    width: auto; /* Reset width */
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+    display: inline-block;
+    width: auto;
 }
 
 .ecard-save-btn:hover {
